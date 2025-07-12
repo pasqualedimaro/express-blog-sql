@@ -18,7 +18,20 @@ const index = (req, res) => {
 const show = (req, res) => {}
 
 // DESTROY - Elimina un post
-const destroy = (req, res) => {}
+const destroy = (req, res) => {
+    //query
+    const {id} = req.params;
+    const sql = 'DELETE FROM posts WHERE id=?';
+    //eseguo la query
+    connection.query(sql,[id], (err, results) => {
+        if(err)
+            return res
+              .status(500)
+              .json(err);
+        res.sendStatus(204);
+})
+            
+}
 
 // Esportiamo tutte le funzioni
 module.exports = {
