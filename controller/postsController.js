@@ -9,7 +9,9 @@ const index = (req, res) => {
     // controllo se funziona l'errore
     connection.query(sql, (err, results) => {
         if(err)
-            return res.status(500).json(err)
+            return res
+        .status(500)
+        .json({error: 'Errore la query è fallita'})
         res.json(results);
     })
 };
