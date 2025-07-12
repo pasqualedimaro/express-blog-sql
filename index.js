@@ -4,6 +4,9 @@
 
 //inizio a scrivere express
 const express = require("express")
+//importo la connessione al db
+const db = require("./data/db.js")
+
 const app = express()
 const port = 3100
 const PostRouter = require("./routes/posts")
